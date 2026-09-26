@@ -1,13 +1,14 @@
-01_data_profiling.ipynb
+# Data Profiling E-Commerce Behavior Dataset
 
-1. Import library
+## Dataset
+eCommerce Behavior Data from Multi-Category Store
 
-2. Lokasi dataset
+## Tujuan
+Melakukan eksplorasi awal dataset besar menggunakan Polars Lazy API.
 
-3. Cek ukuran file
-
-4. Baca schema dengan Polars
-
-5. Cek jumlah baris
-
-6. Tampilkan sample data
+Analisis awal meliputi:
+- ukuran dataset
+- struktur kolom
+- tipe data
+- jumlah baris
+- contoh data
