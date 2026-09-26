@@ -1,6 +1,13 @@
-# Notebooks
+01_data_profiling.ipynb
 
-Folder ini berisi notebook analisis data.
+1. Import library
 
-File utama:
-- 01_data_profiling.ipynb
+2. Lokasi dataset
+
+3. Cek ukuran file
+
+4. Baca schema dengan Polars
+
+5. Cek jumlah baris
+
+6. Tampilkan sample data
