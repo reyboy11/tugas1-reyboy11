@@ -1,20 +1,23 @@
-# Dataset
+## Dataset Information
 
-## Informasi Dataset
+Dataset Name:
+eCommerce Behavior Data from Multi-Category Store
 
-Nama Dataset:
-E-Commerce Behavior Data from Multi-Category Store
+Source:
+Kaggle - eCommerce Behavior Data from Multi-Category Store
 
-Sumber:
-Kaggle - E-Commerce Behavior Data from Multi-Category Store
+File Used:
+2019-Oct.csv
 
-Ukuran Dataset:
--
+Size:
+Approximately 5 GB
 
-Jumlah Baris:
--
+Description:
+Dataset contains large-scale e-commerce user behavior data,
+including user activity events such as view, cart, purchase,
+and remove_from_cart. The dataset also contains information
+about products, categories, brands, prices, users, and sessions.
 
-Deskripsi:
-Dataset berisi aktivitas pengguna pada platform e-commerce,
-meliputi event view, cart, dan purchase beserta informasi
-produk, kategori, harga, pengguna, dan waktu transaksi.
+Processing:
+The dataset is processed using Polars Lazy API and DuckDB
+for efficient big data analysis.
