@@ -50,11 +50,18 @@ Jumlah Data:
 
 ## Struktur Repository
 
-data/
+tugas1-reyboy11
+│
 ├── README.md
-notebooks/
-└── 01_data_profiling.ipynb
-
+│
+├── data
+│   ├── README.md
+│   └── raw
+│       └── .gitkeep
+│
+└── notebooks
+    ├── README.md
+    └── 01_data_profiling.ipynb
 
 ## Progress
 
