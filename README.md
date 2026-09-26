@@ -1,15 +1,22 @@
 # tugas1-reyboy11
-*M. Raihan Abdi
-*202310370311474
+
+**Nama:** M. Raihan Abdi  
+**NIM:** 202310370311474  
+
 # Analisis Big Data Perilaku Pengguna E-Commerce
 
 ## Deskripsi Proyek
 
-Proyek ini merupakan implementasi Analisis Big Data menggunakan dataset e-commerce berukuran besar.
+Tugas ini merupakan implementasi Analisis Big Data dengan melakukan eksplorasi dan analisis terhadap dataset e-commerce berukuran besar.
 
-Analisis dilakukan untuk memahami pola perilaku pengguna berdasarkan aktivitas pada platform e-commerce menggunakan pendekatan Big Data Processing.
+Tujuan dari proyek ini adalah memahami pola aktivitas pengguna pada platform e-commerce berdasarkan data interaksi pengguna. Dataset diproses menggunakan pendekatan Big Data Processing agar mampu menangani jumlah data yang besar secara efisien.
 
-Teknologi yang digunakan:
+Pada tahap awal dilakukan proses data profiling untuk mengetahui karakteristik dataset, struktur data, jumlah baris, tipe data, serta kondisi kualitas data.
+
+## Teknologi yang Digunakan
+
+Teknologi yang digunakan dalam pengerjaan proyek ini:
+
 - Python
 - Polars
 - DuckDB
@@ -17,40 +24,59 @@ Teknologi yang digunakan:
 - Jupyter Notebook
 
 
-## Dataset
+# Dataset
 
-Nama Dataset:
+## Informasi Dataset
+
+**Nama Dataset**
 
 eCommerce Behavior Data from Multi-Category Store
 
 
-Sumber Dataset:
+**Sumber Dataset**
 
 Kaggle - eCommerce Behavior Data from Multi-Category Store
 
 
-Dataset yang digunakan:
+**Dataset yang Digunakan**
 
 2019-Nov.csv
 
 
-Ukuran Dataset:
+**Ukuran Dataset**
 
 ±8.39 GB
 
 
-Jumlah Data:
+**Jumlah Data**
 
 67.501.979 baris
 
 
-## Struktur Repository
+## Deskripsi Dataset
 
-67.501.979 baris
+Dataset yang digunakan berisi aktivitas pengguna pada platform e-commerce.
+
+Setiap baris data merepresentasikan aktivitas pengguna seperti melihat produk, memasukkan produk ke keranjang, melakukan pembelian, dan menghapus produk dari keranjang.
+
+Dataset memiliki beberapa informasi utama:
+
+| Kolom | Keterangan |
+|---|---|
+| event_time | waktu aktivitas pengguna |
+| event_type | jenis aktivitas pengguna |
+| product_id | identitas produk |
+| category_id | identitas kategori |
+| category_code | kategori produk |
+| brand | merek produk |
+| price | harga produk |
+| user_id | identitas pengguna |
+| user_session | sesi aktivitas pengguna |
 
 
-## Struktur Repository
+# Struktur Repository
 
+```text
 tugas1-reyboy11
 │
 ├── README.md
@@ -60,13 +86,100 @@ tugas1-reyboy11
 │   └── raw
 │       └── .gitkeep
 │
-└── notebooks
-    ├── README.md
-    └── 01_data_profiling.ipynb
+├── notebooks
+│   ├── README.md
+│   └── 01_data_profiling.ipynb
+│
+├── output
+│
+├── src
+│
+├── Dockerfile
+│
+└── requirements.txt
+```
 
-## Progress
 
-Milestone 1:
-- Dataset profiling
-- Struktur dataset
-- Missing value analysis
+# Tahapan Pengerjaan
+
+## Milestone 1 - Data Profiling
+
+Status: Selesai ✅
+
+Tahapan yang sudah dilakukan:
+
+- Menentukan dataset berukuran besar
+- Mendokumentasikan sumber dataset
+- Mengecek ukuran dataset
+- Membaca dataset menggunakan Polars Lazy API
+- Melakukan pengecekan struktur kolom
+- Menghitung jumlah data
+- Melihat contoh data
+- Melakukan pengecekan missing value
+
+
+## Milestone 2 - Data Cleaning
+
+Status: Belum dikerjakan
+
+Rencana pengerjaan:
+
+- Melakukan pembersihan data menggunakan Polars
+- Menangani missing value
+- Mengecek data duplikat
+- Melakukan validasi kualitas data
+- Melakukan profiling menggunakan DuckDB
+
+
+## Milestone 3 - Exploratory Data Analysis
+
+Status: Belum dikerjakan
+
+Rencana pengerjaan:
+
+- Analisis pola aktivitas pengguna berdasarkan waktu
+- Analisis kategori dan produk
+- Membuat visualisasi interaktif menggunakan Plotly
+- Menemukan insight berdasarkan hasil analisis
+
+
+## Final Project
+
+Status: Belum dikerjakan
+
+Target akhir:
+
+- Menghasilkan insight dari hasil analisis
+- Dokumentasi project lengkap
+- Menambahkan Docker untuk reproducibility
+- Menyediakan environment yang dapat dijalankan ulang
+
+
+# Notebook
+
+## 01_data_profiling.ipynb
+
+Notebook ini digunakan untuk melakukan eksplorasi awal dataset.
+
+Tahapan yang dilakukan:
+
+- Import library
+- Membaca dataset menggunakan Polars Lazy API
+- Mengecek ukuran dataset
+- Melihat schema dataset
+- Menghitung jumlah baris
+- Melihat sample data
+- Mengecek missing value
+
+
+# Catatan Dataset
+
+Karena ukuran dataset mencapai beberapa GB, file dataset tidak disimpan langsung pada repository GitHub.
+
+Dataset disimpan secara lokal pada folder:
+
+```text
+data/raw/
+```
+
+Repository hanya menyimpan dokumentasi, notebook, dan kode analisis.
