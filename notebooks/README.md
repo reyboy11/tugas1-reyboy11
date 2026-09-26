@@ -1,14 +1,15 @@
-# Data Profiling E-Commerce Behavior Dataset
+# Notebooks
 
-## Dataset
-eCommerce Behavior Data from Multi-Category Store
+Folder ini berisi notebook analisis data.
 
-## Tujuan
-Melakukan eksplorasi awal dataset besar menggunakan Polars Lazy API.
+## Daftar Notebook
 
-Analisis awal meliputi:
-- ukuran dataset
-- struktur kolom
-- tipe data
-- jumlah baris
-- contoh data
+### 01_data_profiling.ipynb
+
+Notebook ini digunakan untuk:
+- membaca dataset menggunakan Polars Lazy API
+- melihat ukuran dataset
+- mengecek schema kolom
+- menghitung jumlah baris
+- melihat contoh data
+- melakukan pengecekan missing value
