@@ -49,3 +49,16 @@ Jumlah Data:
 
 
 ## Struktur Repository
+
+data/
+├── README.md
+notebooks/
+└── 01_data_profiling.ipynb
+
+
+## Progress
+
+Milestone 1:
+- Dataset profiling
+- Struktur dataset
+- Missing value analysis
