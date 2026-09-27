@@ -2,40 +2,70 @@
 
 ## Nama Dataset
 
-eCommerce Behavior Data from Multi-Category Store
+Indonesian News Dataset (`idn-news-az`)
+
+## Deskripsi Dataset
+
+Dataset ini berisi kumpulan berita berbahasa Indonesia yang dikumpulkan dari berbagai sumber berita online Indonesia.
+
+Dataset digunakan untuk melakukan eksplorasi dan analisis Big Data menggunakan pendekatan pemrosesan data skala besar dengan Polars dan DuckDB.
+
+## Sumber Dataset
+
+Dataset diperoleh dari Hugging Face:
+
+https://huggingface.co/datasets/esteler-ai/idn-news-az
+
+## Format Dataset
+
+Dataset tersedia dalam format:
+
+- Parquet
+
+Dataset terdiri dari beberapa file parquet yang diproses menggunakan Polars Lazy API.
+
+## Ukuran Dataset
+
+Ukuran dataset:
+
+±1.45 GB
+
+Jumlah file:
+
+441 file parquet
+
+## Jumlah Data
+
+Jumlah baris:
+
+1.149.789 baris
+
+## Struktur Kolom
+
+| Kolom | Deskripsi |
+|---|---|
+| date | Tanggal publikasi berita |
+| link | URL sumber berita |
+| title | Judul berita |
+| text | Isi berita |
+
+## Lokasi Penyimpanan
+
+Dataset disimpan pada:
+data/raw/idn-news/
 
 
-## File
+Struktur:
 
-2019-Nov.csv
-
-
-## Ukuran
-
-8.39 GB
-
-
-## Jumlah Baris
-
-67.501.979
+data
+└── raw
+    └── idn-news
+        └── data_files
+            ├── *.parquet
 
 
-## Kolom Dataset
+## Catatan
 
-- event_time
-- event_type
-- product_id
-- category_id
-- category_code
-- brand
-- price
-- user_id
-- user_session
+File dataset berukuran besar sehingga tidak disimpan langsung pada repository GitHub.
 
-
-## Keterangan
-
-Dataset berisi aktivitas pengguna e-commerce seperti view,
-cart, purchase, dan remove_from_cart.
-
-Dataset diproses menggunakan Polars Lazy API.
+Dataset dapat diunduh kembali melalui sumber dataset yang tersedia dan diproses menggunakan notebook profiling.
