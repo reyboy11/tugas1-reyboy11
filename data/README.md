@@ -1,40 +1,72 @@
-# Data Tugas 1
+# Dataset Documentation
 
 ## Dataset yang Dipilih
 
-Isi informasi berikut sebelum Milestone 1.
-
 | Item | Isi |
 |---|---|
-| Nama dataset | `[isi nama dataset]` |
-| Sumber | `[URL BPS / Satu Data Indonesia / BMKG / HuggingFace / Kaggle]` |
-| Lisensi/ketentuan pakai | `[isi]` |
-| Ukuran | `[>= 500 MB atau > 1.000.000 baris]` |
-| Periode data | `[isi]` |
-| Unit analisis | `[isi]` |
+| Nama dataset | Indonesian News Dataset (`idn-news-az`) |
+| Sumber | https://huggingface.co/datasets/esteler-ai/idn-news-az |
+| Lisensi/ketentuan pakai | CC BY 4.0 |
+| Format | Parquet |
+| Ukuran lokal | ±1.45 GB |
+| Jumlah file | 441 file Parquet |
+| Jumlah baris | 1.149.789 baris |
+| Bahasa | Indonesia |
+| Periode data | Mengikuti nilai pada kolom `date`, rentang tanggal diverifikasi pada tahap profiling |
+| Unit analisis | Satu artikel berita |
 
-## Tempat Mencari Dataset
+## Deskripsi Dataset
 
-Pilih dataset Indonesia yang legal digunakan, dapat didokumentasikan sumbernya, dan memenuhi batas ukuran tugas.
+Dataset `idn-news-az` berisi kumpulan artikel berita berbahasa Indonesia yang berasal dari berbagai portal berita daring.
 
-| Situs | Kegunaan |
+Dataset dipilih karena memiliki ukuran sekitar 1.45 GB pada penyimpanan lokal dan terdiri dari 1.149.789 baris. Dengan demikian, dataset memenuhi ketentuan Tugas 1 karena berukuran lebih dari 500 MB dan memiliki lebih dari 1 juta baris.
+
+Dataset digunakan untuk eksplorasi, profiling, pembersihan, dan analisis Big Data menggunakan Polars dan DuckDB.
+
+## Struktur Kolom
+
+| Kolom | Deskripsi |
 |---|---|
-| [Satu Data Indonesia](https://data.go.id/) | Portal data terbuka lintas instansi pemerintah Indonesia. |
-| [Badan Pusat Statistik](https://www.bps.go.id/) | Statistik sosial, ekonomi, kependudukan, dan data wilayah. |
-| [BMKG Data Online](https://dataonline.bmkg.go.id/) | Data cuaca, iklim, gempa bumi, dan observasi meteorologi. |
-| [Hugging Face Datasets](https://huggingface.co/datasets) | Dataset publik yang dapat dicari berdasarkan topik, bahasa, atau ukuran. |
-| [Kaggle Datasets](https://www.kaggle.com/datasets) | Katalog dataset publik; periksa lisensi dan dokumentasi pembuatnya. |
-| [Google Dataset Search](https://datasetsearch.research.google.com/) | Mesin pencari untuk menemukan dataset dari berbagai portal. |
+| `date` | Tanggal publikasi berita |
+| `link` | URL sumber artikel berita |
+| `title` | Judul artikel berita |
+| `text` | Isi artikel berita |
 
-## Cara Memperoleh Data
+## Cara Memperoleh Dataset
 
-1. Buka URL sumber di atas.
-2. Unduh file ke folder `data/raw/` tanpa mengubah data mentah.
-3. Catat nama file dan checksum bila tersedia.
-4. Ubah variabel `DATA_PATH` pada `notebooks/01_data_profiling.ipynb` agar menunjuk ke file tersebut.
+Dataset tidak disimpan langsung pada repository GitHub karena memiliki ukuran yang besar.
+
+Dataset dapat diperoleh dari:
+
+https://huggingface.co/datasets/esteler-ai/idn-news-az
+
+Setelah dataset diunduh, file Parquet ditempatkan pada:
+
+data/raw/idn-news/data_files/
+
+Struktur penyimpanan lokal:
+
+data/
+└── raw/
+    └── idn-news/
+        └── data_files/
+            ├── *.parquet
+            └── ...
+
+Notebook membaca seluruh file Parquet menggunakan pola:
+
+../data/raw/idn-news/data_files/*.parquet
+
+## Pemrosesan Data
+
+Tahap profiling menggunakan Polars Lazy API melalui `pl.scan_parquet()` sehingga dataset dapat diproses secara lazy tanpa langsung memuat seluruh data ke memori.
+
+Pada tahap berikutnya, DuckDB digunakan untuk profiling berbasis SQL dan perintah `SUMMARIZE`.
 
 ## Aturan Penyimpanan
 
-- Jangan commit dataset mentah atau hasil olahan berukuran besar ke Git.
-- File pada `data/raw/` adalah data asli dan tidak boleh diubah.
-- Simpan hasil transformasi yang dapat direproduksi pada `data/processed/`.
+- Dataset mentah disimpan pada `data/raw/`.
+- Dataset mentah tidak di-commit ke GitHub.
+- Data mentah tidak dimodifikasi secara langsung.
+- Hasil transformasi dapat disimpan pada `data/processed/`.
+- Seluruh proses pengolahan harus dapat dijalankan ulang melalui notebook yang tersedia.
