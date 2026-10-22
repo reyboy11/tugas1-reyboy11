@@ -210,3 +210,36 @@ Dataset mentah tidak disertakan dalam repository karena ukurannya besar. Agar an
 - Notebook profiling yang dapat dijalankan ulang.
 
 Dengan struktur tersebut, dataset dapat diperoleh kembali dan proses profiling dapat direplikasi dari awal.
+
+## Hasil Milestone 2: Data Cleaning
+
+Proses cleaning dilakukan menggunakan Polars, sedangkan validasi dan profiling lanjutan dilakukan menggunakan DuckDB.
+
+| Indikator | Hasil |
+|---|---:|
+| Jumlah baris awal | 1.149.789 |
+| Record bertanggal di luar periode | 4 |
+| Duplikasi identik yang dihapus | 108.391 |
+| Jumlah baris setelah cleaning | 1.041.394 |
+| Record tanpa tanggal valid | 101.403 |
+| Duplikasi identik tersisa | 0 |
+
+### Aturan Cleaning
+
+1. Mempertahankan tanggal asli pada kolom `date_raw`.
+2. Mengonversi tanggal menjadi tipe `Date`. Teks `NaT` menjadi nilai null pada kolom `date`.
+3. Mengeluarkan record bertanggal di luar periode 1 Januari 2022 sampai 31 Oktober 2023.
+4. Menghapus duplikasi identik berdasarkan kombinasi tanggal asli, URL, judul, dan isi berita.
+5. Mempertahankan record yang tanggalnya tidak tersedia.
+6. Memeriksa nilai null, string kosong, dan duplikasi setelah cleaning.
+
+### File Hasil
+
+- Notebook: `notebooks/02_data_cleaning.ipynb`
+- Laporan kualitas data: `output/tables/data_quality_report.json`
+- Ringkasan statistik DuckDB: `output/tables/duckdb_summarize.csv`
+- Dataset hasil cleaning: `data/processed/idn_news_cleaned.parquet`
+
+Dataset mentah dan hasil cleaning berukuran besar tidak disertakan dalam commit GitHub. File tersebut tetap tersedia secara lokal untuk menjalankan analisis.
+
+

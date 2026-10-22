@@ -1,0 +1,57 @@
+{
+  "dataset": "IDN News",
+  "source_directory": "data/raw/idn-news/data_files/",
+  "source_license_as_documented": "CC BY 4.0",
+  "source_file_count": 441,
+  "source_size_bytes": 1558347901,
+  "polars_version": "1.44.2",
+  "duckdb_version": "1.5.5",
+  "cleaning_rules": [
+    "Preserve original date string in date_raw.",
+    "Parse date into a Date column; unparseable values become null.",
+    "Keep records with missing/unparseable dates rather than dropping them solely for date quality.",
+    "Trim whitespace from link, title, and text.",
+    "Filter records with null or blank link, title, or text.",
+    "Remove exact duplicates across date_raw, link, title, and text only.",
+    "Do not automatically drop all rows sharing the same URL.",
+    "Exclude records with valid dates outside 2022-01-01 to 2023-10-31."
+  ],
+  "before_cleaning": {
+    "total_baris_awal": 1149789,
+    "date_null": 0,
+    "date_gagal_parsing": 101421,
+    "date_teks_nat": 101421,
+    "link_null": 0,
+    "link_kosong": 0,
+    "title_null": 0,
+    "title_kosong": 0,
+    "text_null": 0,
+    "text_kosong": 0,
+    "kelebihan_baris_url_berulang": 120304,
+    "kelebihan_baris_identik_awal": 108391
+  },
+  "after_cleaning": {
+    "total_baris_hasil": 1041394,
+    "date_null_hasil": 101403,
+    "date_raw_null": 0,
+    "date_raw_nat": 101403,
+    "link_null_hasil": 0,
+    "link_kosong_hasil": 0,
+    "title_null_hasil": 0,
+    "title_kosong_hasil": 0,
+    "text_null_hasil": 0,
+    "text_kosong_hasil": 0,
+    "kelebihan_baris_identik_hasil": 0
+  },
+  "rows_after_cleaning": 1041394,
+  "exact_duplicate_rows_removed_after_required_field_validation": 108391,
+  "cleaned_file": "data/processed/idn_news_cleaned.parquet",
+  "duckdb_summarize_file": "output/tables/duckdb_summarize.csv",
+  "date_range_filter": {
+    "start_date": "2022-01-01",
+    "end_date": "2023-10-31",
+    "rows_excluded": 4
+  },
+  "rows_excluded_outside_date_range": 4,
+  "rows_after_required_field_and_date_range_validation_before_deduplication": 1149785
+}
