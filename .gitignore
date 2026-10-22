@@ -28,3 +28,4 @@ output/*.json
 .DS_Store
 .vscode//data/processed/*.parquet
 /notebooks/.ipynb_checkpoints/
+/data/raw/
